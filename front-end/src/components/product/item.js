@@ -3,6 +3,7 @@ import Footer from '../footer/footer'
 import Header from '../header/header'
 import imgdemo from './avatar.jpg'
 import imgdemo1 from './Balsam_and_Cedar_5ba57b31cc.png'
+import Slider from "react-slick";
 import './item.css'
 import axios from 'axios'
 require("dotenv").config();
@@ -21,24 +22,60 @@ const Item = (props) => {
 
     useEffect(async () => {
         const result = await axios(
-            process.env.REACT_APP_DB_URL + "products/"+ props.match.params.id
+            process.env.REACT_APP_DB_URL + "/products/"+ props.match.params.id
         );
         setData(result.data);
     });
 
-    console.log(data)
+    // console.log(data)
     // const url = `https://working-admin.azurewebsites.net/products/${data.image[0].url}`
     // const image = data?.image
     // console.log(image['0'].url)
+    // data?.related_images.map((item)=> {
+    //     console.log(item);
+    // })
+
     
-    
+    const settings = {
+        infinite: false,
+        dots: true,
+        speed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     return (
         <div>
             <Header/>
             <div className="itemscreen">
                 <div className="itemscreen__left">
                     <div className="left__image">
-                        <img src={process.env.REACT_APP_DB_URL + data?.avatar?.url} alt="product name" />
+                        <img src={process.env.REACT_APP_DB_URL + '/' +  data?.avatar?.url} alt="product name" />
                         
                     </div>
                     
@@ -88,10 +125,40 @@ const Item = (props) => {
             <div className="related__screen">
                 <h2>Related Products</h2> 
                 <div className="related__items">
+                    {/* <div className="item text-center">
+                        <div className="item-img">
+                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.related_images?.[0]?.url} />
+                        </div>
+                        <div>
+                            <p className="mt-3"> Item 1 </p>
+                            <p className="text-danger"> 000  VNĐ</p>
+                            <button className="btn btn-dark mb-3">Add to cart</button>
+                        </div>
+                    </div> */}
+                    <Slider {...settings}>
+                        {
+                            data?.related_images?.map((value) => {
+                                console.log(value)
+                                return(
+                                    <div className="item text-center">
+                                        <div className="item-img">
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.url} />
+                                        </div>
+                                        <div>
+                                            <p className="mt-3"> Item 1 </p>
+                                            <p className="text-danger"> 000  VNĐ</p>
+                                            <button className="btn btn-dark mb-3">Add to cart</button>
+                                        </div>
+                                    </div>
 
-                    <div className="item text-center">
+                                )
+                            })
+                        }
+                    </Slider>
+
+                    {/* <div className="item text-center">
                         <div className="item-img">
-                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.[0]?.url} />
+                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.related_images?.[0]?.url} />
                         </div>
                         <div>
                             <p className="mt-3"> Item 1 </p>
@@ -101,7 +168,7 @@ const Item = (props) => {
                     </div>
                     <div className="item text-center">
                         <div className="item-img">
-                            <img alt="" src={imgdemo1} />
+                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.related_images?.[1]?.url} />
                         </div>
                         <div>
                             <p className="mt-3"> Item 1 </p>
@@ -111,7 +178,7 @@ const Item = (props) => {
                     </div>
                     <div className="item text-center">
                         <div className="item-img">
-                            <img alt="" src={imgdemo} />
+                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.related_images?.[2]?.url} />
                         </div>
                         <div>
                             <p className="mt-3"> Item 1 </p>
@@ -119,6 +186,16 @@ const Item = (props) => {
                             <button className="btn btn-dark mb-3">Add to cart</button>
                         </div>
                     </div>
+                    <div className="item text-center">
+                        <div className="item-img">
+                            <img alt="" src={process.env.REACT_APP_DB_URL + data?.related_images?.[3]?.url} />
+                        </div>
+                        <div>
+                            <p className="mt-3"> Item 1 </p>
+                            <p className="text-danger"> 000  VNĐ</p>
+                            <button className="btn btn-dark mb-3">Add to cart</button>
+                        </div>
+                    </div> */}
 
                 </div>
             </div>

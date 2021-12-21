@@ -227,10 +227,12 @@
 }
 
 .related__items {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
-    margin: 2rem;
-    padding: 2rem;
+    /* margin: 2rem;
+    padding: 2rem; */
+    margin-top: 10vh;
+    margin-bottom: 20vh;
 }
 
 .image img {

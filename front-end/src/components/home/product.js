@@ -61,7 +61,7 @@ export default function Product() {
                                     <div className="item text-center">
                                         <Link to={`/products/${value._id}`}>
                                             <div className="item-img">
-                                                <img alt="" src={"https://working-admin.azurewebsites.net" + value?.avatar?.url} />
+                                                <img alt="" src={"https://working-admin.azurewebsites.net" + value?.avatar[0]?.url} />
                                             </div>
 
                                         </Link>
@@ -88,7 +88,7 @@ export default function Product() {
                                 return (
                                     <div className="item text-center">
                                         <div className="item-img">
-                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
                                         </div>
                                         <div>
                                             <p className="mt-3"> {value.name} </p>
@@ -113,7 +113,7 @@ export default function Product() {
                                 return (
                                     <div className="item text-center">
                                         <div className="item-img">
-                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
                                         </div>
                                         <div>
                                             <p className="mt-3"> {value.name} </p>
@@ -138,7 +138,7 @@ export default function Product() {
                                 return (
                                     <div className="item text-center">
                                         <div className="item-img">
-                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
                                         </div>
                                         <div>
                                             <p className="mt-3"> {value.name} </p>
