@@ -21,14 +21,14 @@ const Item = (props) => {
 
     useEffect(async () => {
         const result = await axios(
-            process.env.REACT_APP_DB_URL + props.match.params.id
+            process.env.REACT_APP_DB_URL + "products/"+ props.match.params.id
         );
         setData(result.data);
     });
 
-    console.log(data?.image?.[0]?.url)
+    console.log(data)
     // const url = `https://working-admin.azurewebsites.net/products/${data.image[0].url}`
-    const image = data?.image
+    // const image = data?.image
     // console.log(image['0'].url)
     
     
@@ -38,7 +38,7 @@ const Item = (props) => {
             <div className="itemscreen">
                 <div className="itemscreen__left">
                     <div className="left__image">
-                        <img src={process.env.REACT_APP_DB_URL + data?.image?.[0]?.url} alt="product name" />
+                        <img src={process.env.REACT_APP_DB_URL + data?.avatar?.url} alt="product name" />
                         
                     </div>
                     

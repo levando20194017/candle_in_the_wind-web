@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import axios from 'axios'
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 require("dotenv").config();
 
 export default function Product() {
@@ -56,20 +56,17 @@ export default function Product() {
                     {
                         data.map(value => {
                             console.log(value)
-                            if (value.catalog.name == "candle") {
+                            if (value?.catalog?.name == "candle") {
                                 return (
                                     <div className="item text-center">
                                         <Link to={`/products/${value._id}`}>
                                             <div className="item-img">
-                                                <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
+                                                <img alt="" src={"https://working-admin.azurewebsites.net" + value?.avatar?.url} />
                                             </div>
 
                                         </Link>
                                         <div>
-                                            <Link to={`/products/${value._id}`}>
-                                                <p className="mt-3"> {value.name} </p>
-
-                                            </Link>
+                                            <p className="mt-3"> {value.name} </p>
                                             <p className="text-danger"> {value.price}  VNĐ</p>
                                             <button className="btn btn-dark mb-3">Add to cart</button>
                                         </div>
@@ -87,20 +84,14 @@ export default function Product() {
                     {
                         data.map(value => {
                             console.log(value)
-                            if (value.catalog.name == "scented wax") {
+                            if (value?.catalog?.name == "scented wax") {
                                 return (
                                     <div className="item text-center">
-                                        <Link to={`/products/${value._id}`}>
-                                            <div className="item-img">
-                                                <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
-                                            </div>
-
-                                        </Link>
+                                        <div className="item-img">
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                        </div>
                                         <div>
-                                            <Link to={`/products/${value._id}`}>
-                                                <p className="mt-3"> {value.name} </p>
-
-                                            </Link>
+                                            <p className="mt-3"> {value.name} </p>
                                             <p className="text-danger"> {value.price}  VNĐ</p>
                                             <button className="btn btn-dark mb-3">Add to cart</button>
                                         </div>
@@ -118,20 +109,14 @@ export default function Product() {
                     {
                         data.map(value => {
                             console.log(value)
-                            if (value.catalog.name == "essential oil") {
+                            if (value?.catalog?.name == "essential oil") {
                                 return (
                                     <div className="item text-center">
-                                        <Link to={`/products/${value._id}`}>
-                                            <div className="item-img">
-                                                <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
-                                            </div>
-
-                                        </Link>
+                                        <div className="item-img">
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                        </div>
                                         <div>
-                                            <Link to={`/products/${value._id}`}>
-                                                <p className="mt-3"> {value.name} </p>
-
-                                            </Link>
+                                            <p className="mt-3"> {value.name} </p>
                                             <p className="text-danger"> {value.price}  VNĐ</p>
                                             <button className="btn btn-dark mb-3">Add to cart</button>
                                         </div>
@@ -149,20 +134,14 @@ export default function Product() {
                     {
                         data.map(value => {
                             console.log(value)
-                            if (value.catalog.name == "decoration") {
+                            if (value?.catalog?.name == "decoration") {
                                 return (
                                     <div className="item text-center">
-                                        <Link to={`/products/${value._id}`}>
-                                            <div className="item-img">
-                                                <img alt="" src={process.env.REACT_APP_DB_URL + value?.image[0]?.url} />
-                                            </div>
-
-                                        </Link>
+                                        <div className="item-img">
+                                            <img alt="" src={process.env.REACT_APP_DB_URL + value?.avatar?.url} />
+                                        </div>
                                         <div>
-                                            <Link to={`/products/${value._id}`}>
-                                                <p className="mt-3"> {value.name} </p>
-
-                                            </Link>
+                                            <p className="mt-3"> {value.name} </p>
                                             <p className="text-danger"> {value.price}  VNĐ</p>
                                             <button className="btn btn-dark mb-3">Add to cart</button>
                                         </div>
