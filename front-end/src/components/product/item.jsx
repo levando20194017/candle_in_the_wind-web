@@ -128,6 +128,16 @@ const Item = (props) => {
                     </div>
                     <div className="item text-center">
                         <div className="item-img">
+                            <img alt="" src={`https://working-admin.azurewebsites.net${image?.[0]?.url}`} />
+                        </div>
+                        <div>
+                            <p className="mt-3"> Item 1 </p>
+                            <p className="text-danger"> 000  VNĐ</p>
+                            <button className="btn btn-dark mb-3">Add to cart</button>
+                        </div>
+                    </div>
+                    <div className="item text-center">
+                        <div className="item-img">
                             <img alt="" src={imgdemo1} />
                         </div>
                         <div>

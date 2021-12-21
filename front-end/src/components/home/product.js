@@ -60,7 +60,7 @@ export default function Product() {
                                     <div className="item text-center">
                                         <Link to={`/products/${value._id}`}>
                                             <div className="item-img">
-                                                <img alt="" src={"https://working-admin.azurewebsites.net" + value.image[0].url} />
+                                                <img alt="" src={"https://working-admin.azurewebsites.net" + value?.image[0]?.url} />
                                             </div>
 
                                         </Link>
